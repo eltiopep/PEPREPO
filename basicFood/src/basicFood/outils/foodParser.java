@@ -37,17 +37,18 @@ public class foodParser {
 		// TODO Auto-generated method stub
 		List<String> list = Arrays.asList(line.split(separator + "[ ]*"));
 		String name = list.get(0);
-		Double fat = Double.valueOf(list.get(1));
-		Double satfat = Double.valueOf(list.get(2));
-		Double hc = Double.valueOf(list.get(3));
-		Double sugar = Double.valueOf(list.get(4));
-		Double protein = Double.valueOf(list.get(5));
-		Double salt = Double.valueOf(list.get(6));
-		Double weight = Double.valueOf(list.get(7));
+		Double kcal=  Double.valueOf(list.get(1));
+		Double fat = Double.valueOf(list.get(2));
+		Double satfat = Double.valueOf(list.get(3));
+		Double hc = Double.valueOf(list.get(4));
+		Double sugar = Double.valueOf(list.get(5));
+		Double protein = Double.valueOf(list.get(6));
+		Double salt = Double.valueOf(list.get(7));
+		Double weight = Double.valueOf(list.get(8));
 
 		// String name, Double fat, Double satfat, Double hc, Double sugar, Double
 		// protein, Double salt,Double weight
-		Aliment aliment =   new Aliment(name, fat, satfat, hc, sugar, protein, salt, weight);
+		Aliment aliment =   new Aliment(name, kcal, fat, satfat, hc, sugar, protein, salt, weight);
 		return aliment;
 	}
 }
