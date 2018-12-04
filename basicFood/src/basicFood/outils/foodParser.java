@@ -33,6 +33,11 @@ public class foodParser {
 		}
 		return  alimentMap;
 	}
+	
+	public static void writeAlimentMapInTxt(HashMap<String, Aliment> mapAliment, String fullPathTxt) {
+//		TODO
+		
+	}
 
 	private static Aliment GenerateAlimentFromLine(String line, String separator) {
 		// TODO Auto-generated method stub
