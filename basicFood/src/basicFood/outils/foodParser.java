@@ -8,10 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class foodParser {
+	private static  String tab="	";
 
 	public static HashMap<String, Aliment> parseFoodFromText(String entirePath) {
 		HashMap<String, Aliment> alimentMap = new HashMap<String, Aliment>();
-		String separator = ",";
+		String separator = tab;
 		String line;
 		BufferedReader in;
 		try {
@@ -45,7 +46,7 @@ public class foodParser {
 		Double protein = Double.valueOf(list.get(6));
 		Double salt = Double.valueOf(list.get(7));
 		Double weight = Double.valueOf(list.get(8));
-
+		//TODO READ SALT AND SODIUM AND STORE AS SALT, BUT CODE GETSODIUM AND SETSODIUM
 		// String name, Double fat, Double satfat, Double hc, Double sugar, Double
 		// protein, Double salt,Double weight
 		Aliment aliment =   new Aliment(name, kcal, fat, satfat, hc, sugar, protein, salt, weight);
