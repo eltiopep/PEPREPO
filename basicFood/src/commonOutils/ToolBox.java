@@ -1,5 +1,7 @@
 package commonOutils;
 
+import java.util.Random;
+
 public class ToolBox {
 	public static boolean doubleAlmostEqual(double a, double b, double fuzzy){
 	    return Math.abs(a-b)<fuzzy;
@@ -8,5 +10,13 @@ public class ToolBox {
 		return doubleAlmostEqual(a, b, 0.000001);
 	}
 
+	public static Double getRandomDouble() {
+		Random r = new Random();
+		return r.nextDouble();
+	}
+	public static Double getRandomDouble(int minValue, int maxValue) {
+		Random r = new Random();
+		return minValue + (maxValue-minValue)*r.nextDouble();
+	}
 }
 		

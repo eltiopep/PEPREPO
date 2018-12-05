@@ -1,4 +1,5 @@
 package basicFood.tests;
+
 //TODO
 import static org.junit.Assert.*;
 
@@ -8,7 +9,22 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import basicFood.outils.Aliment;
+import commonOutils.ToolBox;
+
 public class AlimentTest {
+	String name;
+	Double kcal;
+	Double fat;
+	Double satfat;
+	Double hc;
+	Double sugar;
+	Double protein;
+	Double salt;
+	Double weight;
+	Aliment al;
+	Double fuzzy = 0.00001;
+	int minVal,maxVal;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -20,6 +36,29 @@ public class AlimentTest {
 
 	@Before
 	public void setUp() throws Exception {
+		minVal=0;
+		maxVal=90000;
+		Double k;
+		name = "nameAl";
+		kcal = ToolBox.getRandomDouble(minVal,maxVal);
+		fat = ToolBox.getRandomDouble(minVal,maxVal);
+		satfat = ToolBox.getRandomDouble(minVal,maxVal);
+		hc = ToolBox.getRandomDouble(minVal,maxVal);
+		sugar = ToolBox.getRandomDouble(minVal,maxVal);
+		protein = ToolBox.getRandomDouble(minVal,maxVal);
+		salt = ToolBox.getRandomDouble(minVal,maxVal);
+		weight = ToolBox.getRandomDouble(minVal,maxVal);
+		al = new Aliment(name, kcal, fat, satfat, hc, sugar, protein, salt, weight);
+		k = 100.0 / weight;
+		kcal *= k;
+		fat *= k;
+		satfat *= k;
+		hc *= k;
+		sugar *= k;
+		protein *= k;
+		salt *= k;
+		weight = 100.0;
+
 	}
 
 	@After
@@ -27,118 +66,123 @@ public class AlimentTest {
 	}
 
 	@Test
-	public void testAliment() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testNutritionProperties() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testNutritionPropertiesStringDoubleDoubleDoubleDoubleDoubleDoubleDoubleDouble() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testSetAll() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testSetAllButName() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
 	public void testGetKcal() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(kcal, al.getKcal());
+		;
 	}
 
 	@Test
 	public void testSetKcal() {
-		fail("Not yet implemented"); // TODO
+		kcal = ToolBox.getRandomDouble(minVal,maxVal);
+		al.setKcal(kcal);
+		assertEquals(kcal, al.getKcal(), fuzzy);
+	}
+
+	@Test
+	public void testCalcKcal() {
+		hc = ToolBox.getRandomDouble(minVal,maxVal);
+		fat = ToolBox.getRandomDouble(minVal,maxVal);
+		protein = ToolBox.getRandomDouble(minVal,maxVal);
+		kcal = hc * 4 + protein * 4 + fat * 9;
+		al.setHc(hc);
+		al.setFat(fat);
+		al.setProtein(protein);
+		al.calcKcal();
+		assertEquals(kcal, al.getKcal(), fuzzy);
 	}
 
 	@Test
 	public void testGetWeight() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(weight, al.getWeight(), fuzzy);
 	}
 
 	@Test
 	public void testSetWeight() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(weight, al.getWeight());
 	}
 
 	@Test
 	public void testGetName() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(name.toLowerCase(), al.getName());
 	}
 
 	@Test
 	public void testSetName() {
-		fail("Not yet implemented"); // TODO
+		name = " pAco Rabane ";
+		al.setName(name);
+		assertEquals("paco rabane", al.getName());
 	}
 
 	@Test
 	public void testGetFat() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(fat, al.getFat(), fuzzy);
 	}
 
 	@Test
 	public void testSetFat() {
-		fail("Not yet implemented"); // TODO
+		fat = ToolBox.getRandomDouble(minVal,maxVal);
+		al.setFat(fat);
+		assertEquals(fat, al.getFat(), fuzzy);
 	}
 
 	@Test
 	public void testGetSatfat() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(satfat, al.getSatfat());
 	}
 
 	@Test
 	public void testSetSatfat() {
-		fail("Not yet implemented"); // TODO
+		satfat = ToolBox.getRandomDouble(minVal,maxVal);
+		al.setSatfat(satfat);
+		assertEquals(satfat, al.getSatfat(), fuzzy);
 	}
 
 	@Test
 	public void testGetHc() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(hc, al.getHc());
 	}
 
 	@Test
 	public void testSetHc() {
-		fail("Not yet implemented"); // TODO
+		hc = ToolBox.getRandomDouble(minVal,maxVal);
+		al.setHc(hc);
+		assertEquals(hc, al.getHc(), fuzzy);
 	}
 
 	@Test
 	public void testGetSugar() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(sugar, al.getSugar(), fuzzy);
 	}
 
 	@Test
 	public void testSetSugar() {
-		fail("Not yet implemented"); // TODO
+		sugar = ToolBox.getRandomDouble(minVal,maxVal);
+		al.setSugar(sugar);
+		assertEquals(sugar, al.getSugar(), fuzzy);
 	}
 
 	@Test
 	public void testGetProtein() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(protein, al.getProtein(), fuzzy);
 	}
 
 	@Test
 	public void testSetProtein() {
-		fail("Not yet implemented"); // TODO
+		protein = ToolBox.getRandomDouble(minVal,maxVal);
+		al.setProtein(protein);
+		assertEquals(protein, al.getProtein(), fuzzy);
 	}
 
 	@Test
 	public void testGetSalt() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(salt, al.getSalt(), fuzzy);
 	}
 
 	@Test
 	public void testSetSalt() {
-		fail("Not yet implemented"); // TODO
+		salt = ToolBox.getRandomDouble(minVal,maxVal);
+		al.setSalt(salt);
+		assertEquals(salt, al.getSalt(), fuzzy);
 	}
 
 }

@@ -15,13 +15,12 @@ public abstract class NutritionProperties {
 
 	public NutritionProperties(String name, Double kcal, Double fat, Double satfat, Double hc, Double sugar,
 			Double protein, Double salt, Double weight) {
-		super();
 		setAll(name, kcal, fat, satfat, hc, sugar, protein, salt, weight);
 	}
 
 	public void setAll(String name, Double kcal, Double fat, Double satfat, Double hc, Double sugar, Double protein,
 			Double salt, Double weight) {
-		this.name = name;
+		setName(name);
 		setAllButName(kcal, fat, satfat, hc, sugar, protein, salt, weight);
 	}
 
@@ -37,7 +36,7 @@ public abstract class NutritionProperties {
 		this.weight = weight;
 	}
 
-	private void calcKcal() {
+	public void calcKcal() {
 		setKcal((this.fat * 9 + ((this.hc + this.protein) * 4)));
 	}
 
@@ -62,7 +61,7 @@ public abstract class NutritionProperties {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.name = name.toLowerCase().trim();
 	}
 
 	public Double getFat() {
