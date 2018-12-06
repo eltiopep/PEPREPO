@@ -8,7 +8,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import basicFood.outils.Ingredient;
+import basicFood.outils.Recipe;
+
 public class RecipeTest {
+	Recipe recipe;
+	Ingredient i1;
+	Ingredient i2;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -20,6 +26,7 @@ public class RecipeTest {
 
 	@Before
 	public void setUp() throws Exception {
+		
 	}
 
 	@After

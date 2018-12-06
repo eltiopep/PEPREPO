@@ -7,8 +7,9 @@ public class Ingredient extends NutritionProperties {
 	public Ingredient(Aliment aliment, Double weight) {
 		super();
 		this.setName(aliment.getName());
-		updateBecauseWeightChange(weight);
 		setAliment(aliment);
+		updateBecauseWeightChange(weight);
+		
 	}
 
 	private void setAliment(Aliment aliment2) {
