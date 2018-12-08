@@ -24,7 +24,9 @@ public class Recipe extends NutritionProperties {
 	}
 
 	public void removeIngredient(Ingredient ingredient) {
-		if (!ingredients.remove(ingredient.getName()).equals(null)) {
+		boolean found= false;
+		Ingredient ingredientRemoved=ingredients.remove(ingredient.getName());
+		if (ingredientRemoved != null) {
 			// remove OK
 			update();
 		}
@@ -33,7 +35,7 @@ public class Recipe extends NutritionProperties {
 	public void editIngredientWeight(String ingredientName, Double newWeight) {
 		Ingredient oldIngr;
 		oldIngr = ingredients.get(ingredientName);
-		if (!oldIngr.equals(null)) {
+		if (oldIngr != null) {
 
 			oldIngr.updateBecauseWeightChange(newWeight);
 			update();
