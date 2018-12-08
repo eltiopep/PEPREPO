@@ -2,14 +2,17 @@ package basicFood.tests;
 
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+import basicFood.outils.*;
 public class foodParserTest {
-
+	String path="D:\\gitrepo\\basicFood\\auxFiles\\calories pep.csv";
+	String foodName="llet soja UHT";
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -28,7 +31,9 @@ public class foodParserTest {
 
 	@Test
 	public void testParseFoodFromText() {
-		fail("Not yet implemented"); // TODO
+		HashMap<String, Aliment> foodMap =	foodParser.parseFoodFromText(path);
+		foodName=foodName.toLowerCase();
+		assertNotEquals(foodMap.get(foodName),null);
 	}
 
 	@Test

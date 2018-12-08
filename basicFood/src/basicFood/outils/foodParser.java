@@ -43,18 +43,20 @@ public class foodParser {
 		// TODO Auto-generated method stub
 		List<String> list = Arrays.asList(line.split(separator + "[ ]*"));
 		String name = list.get(0);
-		Double kcal=  Double.valueOf(list.get(1));
-		Double fat = Double.valueOf(list.get(2));
-		Double satfat = Double.valueOf(list.get(3));
-		Double hc = Double.valueOf(list.get(4));
-		Double sugar = Double.valueOf(list.get(5));
-		Double protein = Double.valueOf(list.get(6));
-		Double salt = Double.valueOf(list.get(7));
-		Double weight = Double.valueOf(list.get(8));
+		Double kcal=  Double.valueOf(list.get(1).replace(",","."));
+		Double fat = Double.valueOf(list.get(5).replace(",","."));
+		Double satfat = Double.valueOf(list.get(6).replace(",","."));
+		Double hc = Double.valueOf(list.get(2).replace(",","."));
+		Double sugar = Double.valueOf(list.get(3).replace(",","."));
+		Double protein = Double.valueOf(list.get(4).replace(",","."));
+		Double salt = Double.valueOf(list.get(8).replace(",","."));
+		Double weight = Double.valueOf(list.get(8).replace(",","."));
 		//TODO READ SALT AND SODIUM AND STORE AS SALT, BUT CODE GETSODIUM AND SETSODIUM
 		// String name, Double fat, Double satfat, Double hc, Double sugar, Double
 		// protein, Double salt,Double weight
 		Aliment aliment =   new Aliment(name, kcal, fat, satfat, hc, sugar, protein, salt, weight);
 		return aliment;
 	}
+	
+	TODO; OVERRIDE GENERATE ALIMENT FROM LINE TO MATCH MULTIPLE VALUES.
 }
