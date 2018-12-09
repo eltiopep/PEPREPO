@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import basicFood.outils.*;
-public class foodParserTest {
+public class FoodParserTest {
 	String path="D:\\gitrepo\\basicFood\\auxFiles\\calories pep.csv";
 	String foodName="llet soja UHT";
 	@BeforeClass
