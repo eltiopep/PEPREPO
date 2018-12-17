@@ -21,6 +21,7 @@ public class AlimentTest {
 	Double sugar;
 	Double protein;
 	Double salt;
+	Double fiber;
 	Double weight;
 	Aliment al;
 	Double fuzzy = 0.00001;
@@ -47,8 +48,9 @@ public class AlimentTest {
 		sugar = ToolBox.getRandomDouble(minVal,maxVal);
 		protein = ToolBox.getRandomDouble(minVal,maxVal);
 		salt = ToolBox.getRandomDouble(minVal,maxVal);
+		fiber = ToolBox.getRandomDouble(minVal,maxVal);
 		weight = ToolBox.getRandomDouble(minVal,maxVal);
-		al = new Aliment(name, kcal, fat, satfat, hc, sugar, protein, salt, weight);
+		al = new Aliment(name, kcal, fat, satfat, hc, sugar, protein, salt,fiber, weight);
 		k = 100.0 / weight;
 		kcal *= k;
 		fat *= k;
@@ -57,6 +59,7 @@ public class AlimentTest {
 		sugar *= k;
 		protein *= k;
 		salt *= k;
+		fiber *= k;
 		weight = 100.0;
 
 	}
@@ -183,6 +186,17 @@ public class AlimentTest {
 		salt = ToolBox.getRandomDouble(minVal,maxVal);
 		al.setSalt(salt);
 		assertEquals(salt, al.getSalt(), fuzzy);
+	}
+	@Test
+	public void testGetFiber() {
+		assertEquals(fiber, al.getFiber(), fuzzy);
+	}
+	
+	@Test
+	public void testSetFiber() {
+		fiber = ToolBox.getRandomDouble(minVal,maxVal);
+		al.setFiber(fiber);
+		assertEquals(fiber, al.getFiber(), fuzzy);
 	}
 
 }

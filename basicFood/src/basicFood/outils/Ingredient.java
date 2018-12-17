@@ -30,6 +30,7 @@ public class Ingredient extends NutritionProperties {
 		this.setSugar(aliment.getSugar() * k);
 		this.setProtein(aliment.getProtein() * k);
 		this.setSalt(aliment.getSalt() * k);
+		this.setFiber(aliment.getFiber()*k);
 		this.setWeight(weight);
 		this.calcKcal();
 	}

@@ -24,8 +24,8 @@ public class Recipe extends NutritionProperties {
 	}
 
 	public void removeIngredient(Ingredient ingredient) {
-		boolean found= false;
-		Ingredient ingredientRemoved=ingredients.remove(ingredient.getName());
+		boolean found = false;
+		Ingredient ingredientRemoved = ingredients.remove(ingredient.getName());
 		if (ingredientRemoved != null) {
 			// remove OK
 			update();
@@ -36,7 +36,6 @@ public class Recipe extends NutritionProperties {
 		Ingredient oldIngr;
 		oldIngr = ingredients.get(ingredientName);
 		if (oldIngr != null) {
-
 			oldIngr.updateBecauseWeightChange(newWeight);
 			update();
 		}
@@ -45,8 +44,8 @@ public class Recipe extends NutritionProperties {
 	private void update() {
 		// update the adding of all ingredients.
 
-		Double totalWeight, totalSugar, totalHc, totalFat, totalSatFat, totalProtein, totalSalt, totalKcal;
-		totalWeight = totalSugar = totalHc = totalFat = totalSatFat = totalProtein = totalSalt = totalKcal = 0.0;
+		Double totalWeight, totalSugar, totalHc, totalFat, totalSatFat, totalProtein, totalSalt, totalKcal, totalFiber;
+		totalWeight = totalSugar = totalHc = totalFat = totalSatFat = totalProtein = totalSalt = totalKcal = totalFiber = 0.0;
 
 		for (Entry<String, Ingredient> entry : ingredients.entrySet()) {
 			Ingredient ingredient = entry.getValue();
@@ -57,9 +56,11 @@ public class Recipe extends NutritionProperties {
 			totalSugar += ingredient.getSugar();
 			totalProtein += ingredient.getProtein();
 			totalSalt += ingredient.getSalt();
+			totalFiber += ingredient.getFiber();
 			totalKcal += ingredient.getKcal();
 		}
-		this.setAllButName(totalKcal, totalFat, totalSatFat, totalHc, totalSugar, totalProtein, totalSalt, totalWeight);
+		this.setAllButName(totalKcal, totalFat, totalSatFat, totalHc, totalSugar, totalProtein, totalSalt, totalFiber,
+				totalWeight);
 	}
 
 }

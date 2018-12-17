@@ -18,5 +18,16 @@ public class ToolBox {
 		Random r = new Random();
 		return minValue + (maxValue-minValue)*r.nextDouble();
 	}
+	
+	//returns 0.0 if an Double is null
+	public static Double verifyDouble(Double number) {
+		if(  number != null) {
+			return number;
+		}
+		else {
+			return 0.0;
+		}
+			
+	}
 }
 		

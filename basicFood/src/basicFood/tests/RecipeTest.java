@@ -34,9 +34,9 @@ public class RecipeTest {
 
 	@Before
 	public void setUp() throws Exception {
-		a1 = new Aliment("aliment1", dr(), dr(), dr(), dr(), dr(), dr(), dr(), dr());
+		a1 = new Aliment("aliment1", dr(), dr(), dr(), dr(), dr(), dr(), dr(), dr(),dr());
 		i1 = new Ingredient(a1, dr());
-		a2 = new Aliment("aliment2", dr(), dr(), dr(), dr(), dr(), dr(), dr(), dr());
+		a2 = new Aliment("aliment2", dr(), dr(), dr(), dr(), dr(), dr(), dr(), dr(),dr());
 		i2 = new Ingredient(a2, dr());
 		name = "carxofetes En ou";
 		recipe = new Recipe(name);

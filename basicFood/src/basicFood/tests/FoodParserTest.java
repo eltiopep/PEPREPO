@@ -10,9 +10,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import basicFood.outils.*;
+
 public class FoodParserTest {
-	String path="D:\\gitrepo\\basicFood\\auxFiles\\calories pep.csv";
-	String foodName="llet soja UHT";
+	String path = "D:\\gitrepo\\basicFood\\auxFiles\\calories pep.csv";
+	String foodName = "llet soja UHT";
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -31,9 +33,9 @@ public class FoodParserTest {
 
 	@Test
 	public void testParseFoodFromText() {
-		HashMap<String, Aliment> foodMap =	foodParser.parseFoodFromText(path);
-		foodName=foodName.toLowerCase();
-		assertNotEquals(foodMap.get(foodName),null);
+		HashMap<String, Aliment> foodMap = foodParser.parseFoodFromText(path);
+		foodName = foodName.toLowerCase();
+		assertNotEquals(foodMap.get(foodName), null);
 	}
 
 	@Test

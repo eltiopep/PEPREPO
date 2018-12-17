@@ -1,31 +1,26 @@
 package basicFood.outils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import commonOutils.ToolBox;
-
 public abstract class NutritionProperties {
 	private String name;
-	private Double kcal, fat, satfat, hc, sugar, protein, salt, weight;
+	private Double kcal, fat, satfat, hc, sugar, protein, salt, fiber, weight;
 
 	public NutritionProperties() {
 
 	}
 
 	public NutritionProperties(String name, Double kcal, Double fat, Double satfat, Double hc, Double sugar,
-			Double protein, Double salt, Double weight) {
-		setAll(name, kcal, fat, satfat, hc, sugar, protein, salt, weight);
+			Double protein, Double salt, Double fiber, Double weight) {
+		setAll(name, kcal, fat, satfat, hc, sugar, protein, salt, fiber, weight);
 	}
 
 	public void setAll(String name, Double kcal, Double fat, Double satfat, Double hc, Double sugar, Double protein,
-			Double salt, Double weight) {
+			Double salt, Double fiber, Double weight) {
 		setName(name);
-		setAllButName(kcal, fat, satfat, hc, sugar, protein, salt, weight);
+		setAllButName(kcal, fat, satfat, hc, sugar, protein, salt, fiber, weight);
 	}
 
 	public void setAllButName(Double kcal, Double fat, Double satfat, Double hc, Double sugar, Double protein,
-			Double salt, Double weight) {
+			Double salt, Double fiber, Double weight) {
 		this.kcal = kcal;
 		this.fat = fat;
 		this.satfat = satfat;
@@ -33,6 +28,7 @@ public abstract class NutritionProperties {
 		this.sugar = sugar;
 		this.protein = protein;
 		this.salt = salt;
+		this.fiber = fiber;
 		this.weight = weight;
 	}
 
@@ -111,5 +107,14 @@ public abstract class NutritionProperties {
 	public void setSalt(Double salt) {
 		this.salt = salt;
 	}
+
+	public Double getFiber() {
+		return fiber;
+	}
+
+	public void setFiber(Double fiber) {
+		this.fiber = fiber;
+	}
+	
 
 }

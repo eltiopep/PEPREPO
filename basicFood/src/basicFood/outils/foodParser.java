@@ -21,7 +21,6 @@ public class foodParser {
 			line = in.readLine();
 
 			while (line != null) {
-				System.out.println(line);
 				line = in.readLine();
 				lineCounter++;
 				if (lineCounter > 1) {
@@ -41,22 +40,38 @@ public class foodParser {
 
 	private static Aliment GenerateAlimentFromLine(String line, String separator) {
 		// TODO Auto-generated method stub
+		Double salt, fiber,satfat,fat,protein,sugar,hc,kcal;
+		String name="";
+		salt = fiber = satfat = fat = protein = sugar = hc = kcal=0.0;
 		List<String> list = Arrays.asList(line.split(separator + "[ ]*"));
-		String name = list.get(0);
-		Double kcal=  Double.valueOf(list.get(1).replace(",","."));
-		Double fat = Double.valueOf(list.get(5).replace(",","."));
-		Double satfat = Double.valueOf(list.get(6).replace(",","."));
-		Double hc = Double.valueOf(list.get(2).replace(",","."));
-		Double sugar = Double.valueOf(list.get(3).replace(",","."));
-		Double protein = Double.valueOf(list.get(4).replace(",","."));
-		Double salt = Double.valueOf(list.get(8).replace(",","."));
-		Double weight = Double.valueOf(list.get(8).replace(",","."));
-		//TODO READ SALT AND SODIUM AND STORE AS SALT, BUT CODE GETSODIUM AND SETSODIUM
-		// String name, Double fat, Double satfat, Double hc, Double sugar, Double
-		// protein, Double salt,Double weight
-		Aliment aliment =   new Aliment(name, kcal, fat, satfat, hc, sugar, protein, salt, weight);
-		return aliment;
+		int i=list.size()-1;
+		switch (i){
+		case 8:
+			 salt = Double.valueOf(list.get(8).replace(",","."));
+		case 7:
+			 fiber = Double.valueOf(list.get(7).replace(",","."));
+		case 6:
+			 satfat = Double.valueOf(list.get(6).replace(",","."));
+		case 5:
+			 fat = Double.valueOf(list.get(5).replace(",","."));
+		case 4:
+			 protein = Double.valueOf(list.get(4).replace(",","."));
+		case 3:
+			 sugar = Double.valueOf(list.get(3).replace(",","."));
+		case 2:
+			 hc = Double.valueOf(list.get(2).replace(",","."));
+		case 1:
+			 kcal=  Double.valueOf(list.get(1).replace(",","."));
+		case 0:
+			name = list.get(0);
+			Double weight = 100.0;
+			//TODO READ SALT AND SODIUM AND STORE AS SALT, BUT CODE GETSODIUM AND SETSODIUM
+			// String name, Double fat, Double satfat, Double hc, Double sugar, Double
+			// protein, Double salt,Double weight
+			Aliment aliment =   new Aliment(name, kcal, fat, satfat, hc, sugar, protein, salt,fiber, weight);
+			return aliment;
+		default:
+			return null;
+		}
 	}
-	
-	TODO; OVERRIDE GENERATE ALIMENT FROM LINE TO MATCH MULTIPLE VALUES.
 }
