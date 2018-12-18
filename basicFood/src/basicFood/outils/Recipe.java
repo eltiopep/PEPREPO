@@ -63,4 +63,9 @@ public class Recipe extends NutritionProperties {
 				totalWeight);
 	}
 
+	@Override
+	public String toString() {
+		return "Recipe [ingredients=" + ingredients + "]";
+	}
+
 }

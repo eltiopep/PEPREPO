@@ -19,18 +19,22 @@ public class foodParser {
 			int lineCounter = 0;
 			in = new BufferedReader(new FileReader(entirePath));
 			line = in.readLine();
-
 			while (line != null) {
-				line = in.readLine();
 				lineCounter++;
+//				if (lineCounter == 104) {
+//					System.out.println("ara peta");
+//				}
 				if (lineCounter > 1) {
 					Aliment aliment = GenerateAlimentFromLine(line, separator);
 					alimentMap.put(aliment.getName(), aliment);
+					System.out.println(aliment.toString());
 				}
+				
+				line = in.readLine();
 			}
 		} catch (IOException e) {
 		}
-		return  alimentMap;
+		return alimentMap;
 	}
 	
 	public static void writeAlimentMapInTxt(HashMap<String, Aliment> mapAliment, String fullPathTxt) {
@@ -47,21 +51,21 @@ public class foodParser {
 		int i=list.size()-1;
 		switch (i){
 		case 8:
-			 salt = Double.valueOf(list.get(8).replace(",","."));
+			 salt = emptyToZeros(list.get(8));
 		case 7:
-			 fiber = Double.valueOf(list.get(7).replace(",","."));
+			 fiber = emptyToZeros(list.get(7));
 		case 6:
-			 satfat = Double.valueOf(list.get(6).replace(",","."));
+			 satfat = emptyToZeros(list.get(6));
 		case 5:
-			 fat = Double.valueOf(list.get(5).replace(",","."));
+			 fat = emptyToZeros(list.get(5));
 		case 4:
-			 protein = Double.valueOf(list.get(4).replace(",","."));
+			 protein = emptyToZeros(list.get(4));
 		case 3:
-			 sugar = Double.valueOf(list.get(3).replace(",","."));
+			 sugar = emptyToZeros(list.get(3));
 		case 2:
-			 hc = Double.valueOf(list.get(2).replace(",","."));
+			 hc = emptyToZeros(list.get(2));
 		case 1:
-			 kcal=  Double.valueOf(list.get(1).replace(",","."));
+			 kcal=  emptyToZeros(list.get(1));
 		case 0:
 			name = list.get(0);
 			Double weight = 100.0;
@@ -73,5 +77,14 @@ public class foodParser {
 		default:
 			return null;
 		}
+	}
+	 static Double emptyToZeros (String stringToValidate) {
+		if (stringToValidate.isEmpty() || stringToValidate.equals(null)){
+			return(0.0);
+		}
+		else {
+			return Double.valueOf(stringToValidate.replace(",","."));
+		}
+		
 	}
 }

@@ -115,6 +115,13 @@ public abstract class NutritionProperties {
 	public void setFiber(Double fiber) {
 		this.fiber = fiber;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "NutritionProperties [name=" + name + ", kcal=" + kcal + ", fat=" + fat + ", satfat=" + satfat + ", hc="
+				+ hc + ", sugar=" + sugar + ", protein=" + protein + ", salt=" + salt + ", fiber=" + fiber + ", weight="
+				+ weight + "]";
+	}
+	
+	
 }
