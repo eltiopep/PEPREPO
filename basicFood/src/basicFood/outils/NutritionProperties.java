@@ -122,6 +122,10 @@ public abstract class NutritionProperties {
 				+ hc + ", sugar=" + sugar + ", protein=" + protein + ", salt=" + salt + ", fiber=" + fiber + ", weight="
 				+ weight + "]";
 	}
+	public String toStringOnlyValues() {
+		String s ="	";
+		return (this.name+s+kcal+s+hc+s+sugar+s+protein+s+fat+s+satfat+s+fiber+s+salt);
+	}
 	
 	
 }

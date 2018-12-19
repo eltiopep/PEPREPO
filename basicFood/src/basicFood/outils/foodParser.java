@@ -1,11 +1,16 @@
 package basicFood.outils;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class foodParser {
 	private static  String tab="	";
@@ -38,8 +43,19 @@ public class foodParser {
 	}
 	
 	public static void writeAlimentMapInTxt(HashMap<String, Aliment> mapAliment, String fullPathTxt) {
-//		TODO
-		
+		si existe, append, si no , crear
+		try {
+			FileWriter fw = new FileWriter(fullPathTxt, true);
+			String lineSeparator = System.getProperty("line.separator");
+			Iterator<Entry<String, Aliment>> it = mapAliment.entrySet().iterator();
+			while (it.hasNext()) {
+				Map.Entry<String, Aliment> pair = it.next();
+				fw.write(pair.getValue().toStringOnlyValues() + lineSeparator);
+			}
+			fw.close();
+		} catch (IOException e) {
+		}
+
 	}
 
 	private static Aliment GenerateAlimentFromLine(String line, String separator) {
@@ -78,7 +94,8 @@ public class foodParser {
 			return null;
 		}
 	}
-	 static Double emptyToZeros (String stringToValidate) {
+	
+	static Double emptyToZeros (String stringToValidate) {
 		if (stringToValidate.isEmpty() || stringToValidate.equals(null)){
 			return(0.0);
 		}
@@ -87,4 +104,5 @@ public class foodParser {
 		}
 		
 	}
+
 }

@@ -40,7 +40,9 @@ public class FoodParserTest {
 
 	@Test
 	public void testWriteAlimentMapInTxt() {
-		fail("Not yet implemented"); // TODO
+		HashMap<String, Aliment> foodMap = foodParser.parseFoodFromText(path);
+		foodParser.writeAlimentMapInTxt(foodMap, (path + "bis"));
+		
 	}
 
 }
