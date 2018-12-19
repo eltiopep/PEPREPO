@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 public class foodParser {
 	private static  String tab="	";
@@ -43,11 +44,12 @@ public class foodParser {
 	}
 	
 	public static void writeAlimentMapInTxt(HashMap<String, Aliment> mapAliment, String fullPathTxt) {
-		si existe, append, si no , crear
+		//si existe, append, si no , crear
+		TreeMap<String, Aliment> tm = new TreeMap<String, Aliment>(mapAliment);
 		try {
 			FileWriter fw = new FileWriter(fullPathTxt, true);
 			String lineSeparator = System.getProperty("line.separator");
-			Iterator<Entry<String, Aliment>> it = mapAliment.entrySet().iterator();
+			Iterator<Entry<String, Aliment>> it = tm.entrySet().iterator();
 			while (it.hasNext()) {
 				Map.Entry<String, Aliment> pair = it.next();
 				fw.write(pair.getValue().toStringOnlyValues() + lineSeparator);
