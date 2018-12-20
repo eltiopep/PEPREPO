@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-public class foodParser {
+public class FoodParser {
 	private static  String tab="	";
 
 	public static HashMap<String, Aliment> parseFoodFromText(String entirePath) {
@@ -27,13 +27,10 @@ public class foodParser {
 			line = in.readLine();
 			while (line != null) {
 				lineCounter++;
-//				if (lineCounter == 104) {
-//					System.out.println("ara peta");
-//				}
+//				ignore first line (header)
 				if (lineCounter > 1) {
 					Aliment aliment = GenerateAlimentFromLine(line, separator);
 					alimentMap.put(aliment.getName(), aliment);
-					System.out.println(aliment.toString());
 				}
 				
 				line = in.readLine();
@@ -44,7 +41,6 @@ public class foodParser {
 	}
 	
 	public static void writeAlimentMapInTxt(HashMap<String, Aliment> mapAliment, String fullPathTxt) {
-		//si existe, append, si no , crear
 		TreeMap<String, Aliment> tm = new TreeMap<String, Aliment>(mapAliment);
 		try {
 			FileWriter fw = new FileWriter(fullPathTxt, true);
@@ -61,7 +57,7 @@ public class foodParser {
 	}
 
 	private static Aliment GenerateAlimentFromLine(String line, String separator) {
-		// TODO Auto-generated method stub
+
 		Double salt, fiber,satfat,fat,protein,sugar,hc,kcal;
 		String name="";
 		salt = fiber = satfat = fat = protein = sugar = hc = kcal=0.0;

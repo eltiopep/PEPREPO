@@ -33,15 +33,15 @@ public class FoodParserTest {
 
 	@Test
 	public void testParseFoodFromText() {
-		HashMap<String, Aliment> foodMap = foodParser.parseFoodFromText(path);
+		HashMap<String, Aliment> foodMap = FoodParser.parseFoodFromText(path);
 		foodName = foodName.toLowerCase();
 		assertNotEquals(foodMap.get(foodName), null);
 	}
 
 	@Test
 	public void testWriteAlimentMapInTxt() {
-		HashMap<String, Aliment> foodMap = foodParser.parseFoodFromText(path);
-		foodParser.writeAlimentMapInTxt(foodMap, (path + "bis"));
+		HashMap<String, Aliment> foodMap = FoodParser.parseFoodFromText(path);
+		FoodParser.writeAlimentMapInTxt(foodMap, (path + "bis"));
 		
 	}
 
