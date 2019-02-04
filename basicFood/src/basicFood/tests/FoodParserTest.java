@@ -12,7 +12,7 @@ import org.junit.Test;
 import basicFood.outils.*;
 
 public class FoodParserTest {
-	String path = "D:\\gitrepo\\basicFood\\auxFiles\\calories pep.csv";
+	String path = "C:\\programacio\\repositori\\PEPREPO\\basicFood\\auxFiles\\calories pep.csv";
 	String foodName = "llet soja UHT";
 
 	@BeforeClass
@@ -35,7 +35,7 @@ public class FoodParserTest {
 	public void testParseFoodFromText() {
 		HashMap<String, Aliment> foodMap = FoodParser.parseFoodFromText(path);
 		foodName = foodName.toLowerCase();
-		assertNotEquals(foodMap.get(foodName), null);
+		assertNotNull(foodMap.get(foodName));
 	}
 
 	@Test
